@@ -17,11 +17,6 @@ Given an array of integers `nums` and an integer `target`, return indices of two
 
 ---
 
-## 💻 Code (Java)
-See `code1.java` file
-
----
-
 ## 🧠 Learning
 
 - Time Complexity: **O(n²)** — not efficient for large arrays
