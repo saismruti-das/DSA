@@ -1,5 +1,5 @@
 **Language:** Java  
-**Problem:** LeetCode #1  
+**Problem:** LeetCode #1 Two Sum - HashMap 
 **Topic:** Arrays  
 **Difficulty:** Easy
 
