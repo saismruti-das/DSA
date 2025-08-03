@@ -1,5 +1,29 @@
 class Solution {
     public int[] productExceptSelf(int[] nums) {
+        /*Optimal Approach
+        As we iterate the array
+            we 1st calculate and store prefix in ans array
+        then we re-iterate array
+            calculate suffix for each element and update the ans array
+         */
+
+        //code
+        int n=nums.length;
+        int[] ans=new int[n];
+        ans[0]=1;
+        for (int i=1;i<n;i++){
+            ans[i]=ans[i-1]*nums[i-1];
+        }
+
+        int suffix=1;
+        for (int i=n-2; i>=0; i--){
+            suffix= suffix*nums[i+1];
+            ans[i]=ans[i]*suffix;
+        }
+
+        return ans;
+
+        
         /*better approach
         for an element maintain 2 new arrays:
             prefix to keep track of all the elements before i and 
