@@ -23,23 +23,24 @@ class BinarySearch{
     }
 
     public static void main(String[] args){
-        Scanner sc = new Scanner (System.in);
-
         //size of array
-        System.out.println("Enter size of array");
-        int n=sc.nextInt();
-
-        //input array
-        int[] arr=new int[n];
-        System.out.println("Enter elements of array");
-        for (int i=0; i<n; i++){
-            arr[i]=sc.nextInt();
+        try (Scanner sc = new Scanner (System.in)) {
+            //size of array
+            System.out.println("Enter size of array");
+            int n=sc.nextInt();
+            
+            //input array
+            int[] arr=new int[n];
+            System.out.println("Enter elements of array");
+            for (int i=0; i<n; i++){
+                arr[i]=sc.nextInt();
+            }
+            
+            //target element
+            System.out.println("Enter target elemet");
+            int target=sc.nextInt();
+            
+            System.out.print("Index of target: "+binarySearch(arr, target));
         }
-
-        //target element
-        System.out.println("Enter target elemet");
-        int target=sc.nextInt();
-
-        System.out.print("Index of target: "+binarySearch(arr, target));
     }
 }
