@@ -3,25 +3,17 @@
 import java.util.*;
 class FirstAndLastOccurence{
 
-    static int[] binarySearch(int[] arr, int x){
+    static int firstOccurence(int[] arr, int x){
         int start=0;
         int end=arr.length-1;
+        int res=-1;
 
         while(start<=end){
             int mid =(int) (start+end)/2;
 
             if(arr[mid]==x){
-
-                //traversing and searching
-                int first=mid;
-                int last=mid;
-                while(first!=0 && arr[first]==arr[first-1]){
-                    first--;
-                }
-                while(last!=arr.length-1 && arr[last]==arr[last+1]){
-                    last++;
-                }
-                return new int[] {first,last};
+                res=mid;
+                end=mid-1;
             }
 
             else if(x > arr[mid])     //x is present in right side
@@ -30,7 +22,29 @@ class FirstAndLastOccurence{
             else
             end=mid-1;
         }
-        return new int[] {};
+        return res;
+    }
+
+    static int lastOccurence(int[] arr, int x){
+        int start=0;
+        int end=arr.length-1;
+        int res=-1;
+
+        while(start<=end){
+            int mid =(int) (start+end)/2;
+
+            if(arr[mid]==x){
+                res=mid;
+                start=mid+1;
+            }
+
+            else if(x > arr[mid])     //x is present in right side
+                start=mid+1;
+
+            else
+            end=mid-1;
+        }
+        return res;
     }
 
     public static void main(String[] args){
@@ -51,7 +65,9 @@ class FirstAndLastOccurence{
             System.out.println("Enter target elemet");
             int target=sc.nextInt();
             
-            System.out.print("First and Last Index of target: "+Arrays.toString(binarySearch(arr, target)));
+            System.out.println("First Index of target: "+firstOccurence(arr, target));
+            System.out.print("Last Index of target: "+lastOccurence(arr, target));
+
         }
     }
 }
