@@ -19,35 +19,35 @@ public class knapsackRecursive {
     }
 
     public static void main(String[] args) {
-        Scanner sc = new Scanner(System.in);
-
         // Input: number of items
-        System.out.print("Enter number of items: ");
-        int n = sc.nextInt();
-
-        int[] values = new int[n];
-        int[] weights = new int[n];
-
-        // Input: values
-        System.out.println("Enter values of items:");
-        for (int i = 0; i < n; i++) {
-            values[i] = sc.nextInt();
+        try (Scanner sc = new Scanner(System.in)) {
+            // Input: number of items
+            System.out.print("Enter number of items: ");
+            int n = sc.nextInt();
+            
+            int[] values = new int[n];
+            int[] weights = new int[n];
+            
+            // Input: values
+            System.out.println("Enter values of items:");
+            for (int i = 0; i < n; i++) {
+                values[i] = sc.nextInt();
+            }
+            
+            // Input: weights
+            System.out.println("Enter weights of items:");
+            for (int i = 0; i < n; i++) {
+                weights[i] = sc.nextInt();
+            }
+            
+            // Input: capacity of knapsack
+            System.out.print("Enter knapsack capacity: ");
+            int capacity = sc.nextInt();
+            
+            // Call knapsack function
+            int result = knapsack(weights, values, capacity, n);
+            
+            System.out.println("Maximum value = " + result);
         }
-
-        // Input: weights
-        System.out.println("Enter weights of items:");
-        for (int i = 0; i < n; i++) {
-            weights[i] = sc.nextInt();
-        }
-
-        // Input: capacity of knapsack
-        System.out.print("Enter knapsack capacity: ");
-        int capacity = sc.nextInt();
-
-        // Call knapsack function
-        int result = knapsack(weights, values, capacity, n);
-
-        System.out.println("Maximum value = " + result);
-        sc.close();
     }
 }
