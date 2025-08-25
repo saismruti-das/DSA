@@ -1,4 +1,4 @@
-//given an array of elements and a target element, find the index of the target element in the array
+//given an sorted array of elements and a target element, find the index of the target element in the array
 
 import java.util.*;
 class BinarySearch{
