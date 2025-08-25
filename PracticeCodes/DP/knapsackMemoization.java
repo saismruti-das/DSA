@@ -1,3 +1,31 @@
+/*
+Problem Statement: 0/1 Knapsack
+
+You are given n items, each with a weight wt[i] and a value val[i].
+You also have a knapsack with capacity W.
+
+Task:
+Find the maximum total value of items that can be put in the knapsack
+such that the total weight does not exceed W.
+
+Constraint:
+- Each item can either be included or excluded (0/1 choice).
+- You cannot take fractional parts of an item.
+
+Example:
+Input:
+    n = 3
+    values = [60, 100, 120]
+    weights = [10, 20, 30]
+    W = 50
+
+Output:
+    220
+
+Explanation:
+    Choose items with weights 20 and 30 → total value = 100 + 120 = 220.
+*/
+
 import java.util.*;
 
 public class knapsackMemoization {
