@@ -40,7 +40,7 @@ class BinarySearch{
             System.out.println("Enter target elemet");
             int target=sc.nextInt();
             
-            System.out.print("Index of target: "+binarySearch(arr, target));
+            System.out.print("Index of target: "+binarySearch(arr, target)+1);
         }
     }
 }

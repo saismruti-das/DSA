@@ -60,10 +60,10 @@ class OrderAgnosticBSearch{
             int target=sc.nextInt();
             
             if(arr[0]<arr[n-1])
-            System.out.print("Index of target: "+binarySearchSorted(arr, target));
+            System.out.print("Index of target: "+binarySearchSorted(arr, target)+1);
             
             else
-            System.out.print("Index of target: "+binarySearchReverseSorted(arr, target));
+            System.out.print("Index of target: "+binarySearchReverseSorted(arr, target)+1);
         }
     }
 }
