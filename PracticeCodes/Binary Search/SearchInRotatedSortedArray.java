@@ -42,11 +42,7 @@ public class SearchInRotatedSortedArray {
                 return start;
             }
             int mid =(start+end)/2;
-            int prev;
-            if(mid==0)
-                prev=n-1;
-            else
-                prev=(mid-1)%n; 
+            int prev=(mid-1+n)%n;
             if(nums[mid]<nums[prev]){
                 return mid;
             }
