@@ -32,15 +32,11 @@ public class NoOfTimesArrayIsRotated {
         int start=0;
         int end=n-1;
         while(start<=end){
-            if(nums[start]<=nums[end]){
+            if(nums[start]<=nums[end]){         //The current segment [start..end] is already sorted. So the smallest element is at start (no pivot inside).
                 return start;
             }
             int mid=(start+end)/2;
-            int prev;
-            if(mid==0)
-                prev=n-1;
-            else
-                prev=(mid-1)%n;          //without if: (mid-1)%n gives -1 if mid =0 so use (((mid-1)%n)+n)%n
+            int prev=(mid-1+n)%n;          //without if: (mid-1)%n gives -1 if mid =0 so use (mid-1+n)%n
             if(nums[mid]<nums[prev] /*&& nums[mid]<nums[next]*/){
                 return mid;
             }
@@ -67,7 +63,7 @@ public class NoOfTimesArrayIsRotated {
     }
 
     public static void main(String[] args) {
-        int[] nums = {4,5,6,7,0,1,2}; // <-- Just change this array for testing
+        int[] nums = {33,34,45,10,15,23,26,31}; // <-- Just change this array for testing
         int result = findRotationCount(nums);
         System.out.println("Array is rotated " + result + " times.");
     }
