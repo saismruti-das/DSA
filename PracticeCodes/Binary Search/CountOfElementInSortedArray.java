@@ -24,7 +24,8 @@ Constraints:
 - nums is sorted in non-decreasing order
 */
 
-class Solution {
+
+public class CountOfElementInSortedArray {
     static int FirstOccurence(int[] arr, int x){
         int start=0;
         int end=arr.length;
@@ -65,18 +66,15 @@ class Solution {
         return last;
     }
 
-    public int countOccurrences(int[] nums, int target) {
+    static int countOccurrences(int[] nums, int target) {
         int first=FirstOccurence(nums,target);
         int last=LastOcuurence(nums,target);
         return last-first+1;
     }
-}
 
-public class CountOfElementInSortedArray {
     public static void main(String[] args) {
-        Solution sol = new Solution();
         int[] nums = {1,2,2,2,3,4};
         int target = 2;
-        System.out.println(sol.countOccurrences(nums, target)); // Expected output: 3
+        System.out.println(countOccurrences(nums, target)); // Expected output: 3
     }
 }
