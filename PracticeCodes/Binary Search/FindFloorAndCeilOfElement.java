@@ -35,7 +35,7 @@ Constraints:
 
 public class FindFloorAndCeilOfElement {
 
-    public static int findFloor(int[] nums, int target) {
+    public static int findFloorIndex(int[] nums, int target) {
         int start=0;
         int end=nums.length-1;
         int res=-1;
@@ -64,7 +64,7 @@ public class FindFloorAndCeilOfElement {
         int[] nums = {1, 2, 4, 6, 10, 12, 14}; // <-- Change array here
         int target = 15;                        // <-- Change target here
 
-        int floor = findFloor(nums, target);
+        int floor = findFloorIndex(nums, target);
         if(floor==-1){
             System.out.println("Floor doesn't exist");      //if floor doesn't exist ceil is 1st element
             System.out.println("Ceil element: "+nums[0]);
