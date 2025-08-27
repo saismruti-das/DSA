@@ -60,26 +60,47 @@ public class FindFloorAndCeilOfElement {
         return res;
     }
 
+    public static int findCeilIndex(int[] nums, int target) {
+        int start=0;
+        int end=nums.length-1;
+        int res=-1;
+        if(target>nums[end]){
+            return -1;
+        }
+        while(start<=end){
+            int mid=(start+end)/2;
+            if(target==nums[mid]){
+                return mid;
+            }
+            else if(nums[mid]<target){
+                start=mid+1;
+            }
+            else{
+                res=mid;
+                end=mid-1;
+            }
+        }
+        return res;
+    }
+
     public static void main(String[] args) {
-        int[] nums = {1, 2, 4, 6, 10, 12, 14}; // <-- Change array here
-        int target = 15;                        // <-- Change target here
+        int[] nums = {1, 2, 3, 4, 8, 10, 10, 12, 14, 19}; // <-- Change array here
+        int target = 9;                        // <-- Change target here
 
         int floor = findFloorIndex(nums, target);
         if(floor==-1){
-            System.out.println("Floor doesn't exist");      //if floor doesn't exist ceil is 1st element
-            System.out.println("Ceil element: "+nums[0]);
+            System.out.println("Floor doesn't exist");      
         }
         else{
             System.out.println("Floor element: " + nums[floor]);
-            if(nums[floor]==target){                  //if floor and target element is same, ceil is also target element
-                    System.out.println("Ceil element: "+nums[floor]);
-            }
-            else if(floor==nums.length-1){                     //if floor is last element
-                System.out.println("Ceil doesn't exist");
-            }
-            else{
-                System.out.println("Ceil element: " + nums[floor+1]);
-            }
+        }
+        
+        int ceil = findCeilIndex(nums, target);
+        if(ceil==-1){
+            System.out.println("Ceil doesn't exist");      
+        }
+        else{
+            System.out.println("Ceil element: " + nums[ceil]);
         }
     }
 }
