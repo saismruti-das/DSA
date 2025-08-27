@@ -19,7 +19,7 @@ public class SearchInRotatedSortedArray2 {
             }
             else if (nums[start] <= nums[mid]) { 
                 // Left half sorted
-                if (nums[start] <= target && target < nums[mid]) {      //if left is sorted and target is in left then value of target is b/w start and mid, so we search left part by making end=mid-1
+                if (nums[start] <= target && target < nums[mid]) {      //if left is sorted and target is in left then value of target is b/w start and mid (not mid so don't check for equal), so we search left part by making end=mid-1
                     end = mid - 1;
                 } else {                                                //if target not in sorted left then it is in unsorted right, so start=mid+1
                     start = mid + 1;
