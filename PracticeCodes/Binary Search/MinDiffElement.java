@@ -20,78 +20,41 @@ Constraints:
 */
 
 public class MinDiffElement {
-    static int FindFloorIndex(int[] nums, int key){
-        int floor=-1;
-        int start=0;
-        int end=nums.length-1;
-        if(key<nums[0]){
-            return -1;
-        }
-        while(start<=end){
-            int mid=(start+end)/2;
-            if(key==nums[mid]){
-                return mid;
-            }
-            else if(key>nums[mid]){
-                floor=mid;
-                start=mid+1;
-            }
-            else{
-                end=mid-1;
-            }
-        }
-        return floor;
-    }
-
-    static int FindCeilIndex(int[] nums, int key){
-        int ceil=-1;
-        int start=0;
-        int end=nums.length-1;
-        if(key>nums[end]){
-            return -1;
-        }
-        while(start<=end){
-            int mid=(start+end)/2;
-            if(key==nums[mid]){
-                return mid;
-            }
-            else if(key>nums[mid]){
-                start=mid+1;
-            }
-            else{
-                ceil=mid;
-                end=mid-1;
-            }
-        }
-        return ceil;
-    }
-
     public static int findMinDiffElement(int[] nums, int key) {
         int res;
-        int floorIndex=FindFloorIndex(nums, key);
-        int ceilIndex=FindCeilIndex(nums, key);
-
-        // System.out.println("Floor Index: " + floorIndex);
-        // System.out.println("Ceil Index: " + ceilIndex);
-
-        if(floorIndex==-1){
-            res=nums[ceilIndex];
+        int start=0;
+        int end=nums.length-1;
+        while(start<=end){
+            int mid=(start+end)/2;
+            if(key==nums[mid]){
+                return nums[mid];
+            }
+            else if(key>nums[mid]){
+                start=mid+1;
+            }
+            else{
+                end=mid-1;
+            }
         }
-        else if(ceilIndex==-1){
-            res=nums[floorIndex];
+
+        if(end<0){
+            res=nums[start];
         }
-        else if(Math.abs(key-nums[floorIndex])<Math.abs(key-nums[ceilIndex])){
-            res=nums[floorIndex];
+        else if(start>nums.length-1){
+            res=nums[end];
+        }
+        else if(Math.abs(key-nums[end])<Math.abs(key-nums[start])){
+            res=nums[end];
         }
         else{
-            res=nums[ceilIndex];
+            res=nums[start];
         }
         return res;
     }
 
     public static void main(String[] args) {
         int[] nums = {1, 3, 8, 10, 15}; // <-- Change array here
-        int key = 24;                   // <-- Change key here
+        int key = 9;                   // <-- Change key here
 
         int result = findMinDiffElement(nums, key);
         System.out.println("Element with minimum difference: " + result);
