@@ -23,7 +23,7 @@ Explanation: There is no element less than or equal to 0.
 Example 3:
 ----------
 Input: nums = [1, 2, 4, 6, 10, 12, 14], target = 14
-Output: 6
+Output: 14
 Explanation: The floor of 14 is 14 itself.
 
 Constraints:
