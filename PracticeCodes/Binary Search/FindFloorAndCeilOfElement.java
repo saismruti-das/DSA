@@ -33,7 +33,7 @@ Constraints:
 - nums is sorted in non-decreasing order
 */
 
-public class FindFloorOfElement {
+public class FindFloorAndCeilOfElement {
 
     public static int findFloor(int[] nums, int target) {
         int start=0;
@@ -62,15 +62,24 @@ public class FindFloorOfElement {
 
     public static void main(String[] args) {
         int[] nums = {1, 2, 4, 6, 10, 12, 14}; // <-- Change array here
-        int target = 10;                        // <-- Change target here
+        int target = 15;                        // <-- Change target here
 
-        int result = findFloor(nums, target);
-        if(result==-1){
-            System.out.println("Floor doesn't exist");
+        int floor = findFloor(nums, target);
+        if(floor==-1){
+            System.out.println("Floor doesn't exist");      //if floor doesn't exist ceil is 1st element
+            System.out.println("Ceil element: "+nums[0]);
         }
-        else
-        System.out.println("Floor element: " + nums[result]);
-
-        
+        else{
+            System.out.println("Floor element: " + nums[floor]);
+            if(nums[floor]==target){                  //if floor and target element is same, ceil is also target element
+                    System.out.println("Ceil element: "+nums[floor]);
+            }
+            else if(floor==nums.length-1){                     //if floor is last element
+                System.out.println("Ceil doesn't exist");
+            }
+            else{
+                System.out.println("Ceil element: " + nums[floor+1]);
+            }
+        }
     }
 }
