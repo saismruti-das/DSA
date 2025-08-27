@@ -33,7 +33,7 @@ Constraints:
 
 public class SearchInRotatedSortedArray {
 
-    static int FindMinIndex(int[] nums, int target){
+    static int FindMinIndex(int[] nums){
         int n=nums.length;
         int start=0;
         int end=n-1;
@@ -76,7 +76,7 @@ public class SearchInRotatedSortedArray {
 
     public static int search(int[] nums, int target) {
         int n=nums.length;
-        int minIndex=FindMinIndex(nums, target);
+        int minIndex=FindMinIndex(nums);
         int index;
         if(minIndex==0){        //no rotation
             index = binarySearch(nums, 0, n-1, target);
@@ -90,7 +90,7 @@ public class SearchInRotatedSortedArray {
     }
 
     public static void main(String[] args) {
-        int[] nums = {1,2,3};          // <-- Change array here
+        int[] nums = {3,4,5,1,2};          // <-- Change array here
         int target = 4;               // <-- Change target here
 
         int result = search(nums, target);
