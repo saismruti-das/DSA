@@ -25,7 +25,7 @@ class FirstAndLastOccurence{
         return res;
     }
 
-    static int lastOccurence(int[] arr, int x){
+    static int lastOccurence(int[] arr, int x){     //searching for element again -> can be optimized using 3 func 1 seperate to find mid
         int start=0;
         int end=arr.length-1;
         int res=-1;
