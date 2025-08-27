@@ -33,26 +33,22 @@ Constraints:
 
 public class SearchInRotatedSortedArray {
 
-    static int binarySearch(int[] arr, int start, int end, int x){
-        return -1;
-    }
-
-    public static int search(int[] nums, int target) {
-        //S1 : Find Index of min element
+    static int FindMinIndex(int[] nums, int target){
         int n=nums.length;
-        int index=-1;
         int start=0;
         int end=n-1;
-        int minIndex=0;
         while(start<=end){
             if(nums[start]<=nums[end]){
-                minIndex=start;
+                return start;
             }
             int mid =(start+end)/2;
-            int prev=(((mid-1)%n)+n)%n;
-            int next=(mid+1)%n;
+            int prev;
+            if(mid==0)
+                prev=n-1;
+            else
+                prev=(mid-1)%n; 
             if(nums[mid]<nums[prev]){
-                minIndex=mid;
+                return mid;
             }
             else{
                 if(nums[start]<=nums[mid]){
@@ -63,23 +59,45 @@ public class SearchInRotatedSortedArray {
                 }
             }
         }
-        System.out.println("Rotation?="+minIndex);
+        return 0;
+    }
+
+    static int binarySearch(int[] arr, int start, int end, int x){
+        while(start<=end){
+            int mid=(start+end)/2;
+            if(arr[mid]==x){
+                return mid;
+            }
+            else if(x>arr[mid]){
+                start=mid+1;
+            }
+            else{
+                end=mid-1;
+            }
+        }
+        return -1;
+    }
+
+    public static int search(int[] nums, int target) {
+        int n=nums.length;
+        int minIndex=FindMinIndex(nums, target);
+        int index=-1;
         if(minIndex==0){        //no rotation
-            index = binarySearch(nums, 0, n, target);
+            index = binarySearch(nums, 0, n-1, target);
         }
         else{
             int leftHalf= binarySearch(nums, 0, minIndex-1, target);
-            int rightHalf= binarySearch(nums, minIndex, n, target);
+            int rightHalf= binarySearch(nums, minIndex, n-1, target);
             index = Math.max(leftHalf, rightHalf);
         }
         return index;
     }
 
     public static void main(String[] args) {
-        int[] nums = {4,5,6,7,0,1,2}; // <-- Change array here
-        int target = 0;               // <-- Change target here
+        int[] nums = {1,2,3};          // <-- Change array here
+        int target = 4;               // <-- Change target here
 
         int result = search(nums, target);
-        System.out.println("Target is at position: " + result+1);
+        System.out.println("Target is at index: " + result);
     }
 }

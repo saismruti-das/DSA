@@ -41,7 +41,6 @@ public class NoOfTimesArrayIsRotated {
                 prev=n-1;
             else
                 prev=(mid-1)%n;          //without if: (mid-1)%n gives -1 if mid =0 so use (((mid-1)%n)+n)%n
-            int next=(mid+1)%n;     
             if(nums[mid]<nums[prev] /*&& nums[mid]<nums[next]*/){
                 return mid;
             }
